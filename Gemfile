@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "omniauth-google-oauth2"
+gem "jquery-ui-rails", '~> 4.2.1'
 
 gem "dotenv-rails", :groups => [:development, :test]
 gem "bootstrap-sass"
