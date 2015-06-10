@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :calendars
-  resources :events
-  get 'events/redirect'
+  get 'events/redirect' => "events#redirect"
+  get 'events/callback' => "events#callback"
+  get 'events/calendars' => "events#calendars"
+  get 'events/index' => "events#index"
   get 'users/index'
 
   get 'auth/:provider/callback', to: 'sessions#create'
