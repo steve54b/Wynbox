@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :calendars
+  resources :events
+  get 'events/redirect'
   get 'users/index'
 
   get 'auth/:provider/callback', to: 'sessions#create'
