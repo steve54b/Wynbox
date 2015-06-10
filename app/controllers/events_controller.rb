@@ -67,20 +67,10 @@ class EventsController < ApplicationController
 
     @items = []
     @items << response.data.items.to_json
-    p "-------------------------------"
-
+ 
     @hash = JSON.parse @items[0]
-    # @hash.each do |event|
-    #   @events = []
-    #   @events << JSON.parse event
-    # end
-
-    #@events = JSON.parse(@hash[0])
     @hash.each { |lesson| puts lesson["summary"] }
-    #p @items.inspect
-    #p @items['expires']
-
-    p "-------------------------------"
+  
     redirect_to events_index_path
   end
 
