@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @items
+    
   end
 
   def redirect
@@ -65,11 +65,34 @@ class EventsController < ApplicationController
       }
     })
 
+    responseta = google_api_client.execute({
+      api_method: google_calendar_api.events.list,
+      parameters: {
+        calendarId: "wyncode.co_uihuufg7hd8qr6f8cfu7afbo3k@group.calendar.google.com"
+      }
+    })
+
+    @times = []
+    @times << responseta.data.items.to_json
+
+    @tatimes = JSON.parse @times[0]
+    @tatimes.each do |time| 
+      puts ""
+      puts time["summary"]
+      puts time["start"]
+      puts time["end"]
+    end
+
     @items = []
     @items << response.data.items.to_json
  
     @hash = JSON.parse @items[0]
-    @hash.each { |lesson| puts lesson["summary"] }
+    @hash.each do |lesson|
+      puts ""
+      puts lesson["summary"]
+      puts lesson["start"]
+      puts lesson["end"]
+    end
   
     redirect_to events_index_path
   end
