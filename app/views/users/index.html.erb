@@ -1,6 +1,18 @@
 <h1> Welcome </h1>
 
 <%= @user.name %>
+<br>
+<%= @user.email %>
+<br>
+<%= image_tag @user.image %>
+
+
+
+<br>
+
+<%= link_to 'Calendar', calendars_path %>
+<%= link_to 'Events', events_redirect_path %>
+<%= link_to 'Documents', documents_redirect_path %>
 
 
 

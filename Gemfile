@@ -24,7 +24,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "omniauth-google-oauth2"
+gem 'google-api-client', '~> 0.7.0', require: 'google/api_client'
 gem "jquery-ui-rails", '~> 4.2.1'
+gem 'google_drive'
 
 gem "dotenv-rails", :groups => [:development, :test]
 gem "bootstrap-sass"
