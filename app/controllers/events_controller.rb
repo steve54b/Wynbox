@@ -96,5 +96,4 @@ class EventsController < ApplicationController
   
     redirect_to events_index_path
   end
-
 end
