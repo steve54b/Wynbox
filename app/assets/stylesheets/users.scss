@@ -1,3 +1,101 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#side-nav {
+  height: 800px;
+}
+
+img {
+  height: 30%;
+  width: 30%;
+}
+
+/* make sidebar nav vertical */ 
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+  }
+  .sidebar-nav .navbar ul:not {
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+.mini-cal {
+  float: right;
+  margin-top: 19%;
+  margin-right: 4%;
+  border: solid black 1px;
+  width: 500px;
+}
+
+#events-home .calendar {
+  border-collapse: collapse;
+  width: 500px;
+  height: 100px;
+
+  td, th {
+    font-family: "Lucida Grande", arial, helvetica, sans-serif;
+    font-size: 10px;
+    padding: 6px;
+    border: 1px solid #999;
+  }
+
+  th {
+    background: #DDD;
+    color: #666;
+    text-align: center;
+    width: 14.2857142857143%;
+  }
+
+  td {
+    background: #FFF;
+    color: #777;
+    height: 60px;
+    vertical-align: top;
+    font-size: 16px;
+  }
+
+  .notmonth { color: #CCC; }
+  .today { background-color: #D7F2FF; }
+}
+
+#events-home #month-home {
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  a {
+    text-decoration: none;
+    padding: 0 10px;
+    color: #999;
+  }
+}
+
+#events-home ul {
+  font-size: 11px;
+  padding-left: 20px;
+}
+
+#today {
+  margin-left: 22%;
+  margin-top: 10%;
+  border: solid black 1px;
+  width: 500px;
+}
+
+#weather {
+  width: 500px;
+  margin-top: -19%;
+  float: right;
+  margin-right: -35%;  
+  border: solid black 1px;
+}

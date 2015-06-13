@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'videos/index'
+
+  get 'local/index'
+
   resources :calendars
   get 'events/redirect' => "events#redirect"
   get 'events/callback' => "events#callback"

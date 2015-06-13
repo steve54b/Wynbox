@@ -1,18 +1,68 @@
-<h1> Welcome </h1>
+<div class="row">
+  <div class="col-sm-3">
+    <div class="sidebar-nav">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+          <ul id="side-nav" class="nav navbar-nav">
+            <li><h3>Welcome</h3></li>
+            <li><%= image_tag @user.image %></li>
+            <li><span><%= @user.name %></span></li>
+            <li><%= @user.email %></li>
+            <li><%= link_to 'Calendar', calendars_path %></li>
+            <li><%= link_to 'Documents', documents_redirect_path %></li>
+            <li><%= link_to 'Lecture Videos', videos_index_path %></li>
+            <li><%= link_to 'Local', local_index_path %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= @user.name %>
-<br>
-<%= @user.email %>
-<br>
-<%= image_tag @user.image %>
 
+<h1>Events</h1>
 
+<div class="mini-cal">
+<div id="events-home">
+<h2 id="month-home">
+<%= link_to "<", date: @date.prev_month %>
+<%= @date.strftime("%B %Y") %>
+<%= link_to ">", date: @date.next_month %>
+</h2>
+  <%= calendar @date do |date| %>
+    <%= date.day %>
+    <% if @events_by_date_mini[date] %>
+      <ul>
+        <% @events_by_date_mini[date].each do |event| %>
+          <li><%= link_to event.title, event %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+</div>
+</div>
 
-<br>
+<div id="today">
+<h2>Today</h2>
+<%today_date = Date.today %>
+<h4><%= today_date %></h4>
+<% @events_by_date.each do |event| %>
+  <br>
+  <% if event[0] == today_date %>
+    <%= "date #{ event[0] } "%>
+    <br>
+      <%= "title #{ event[1] } "%>
+    <br>
+    <%= "description #{ event[2] } "%>
+    <br>
+  <% end %> 
+<% end %>
+</div>
 
-<%= link_to 'Calendar', calendars_path %>
-<%= link_to 'Events', events_redirect_path %>
-<%= link_to 'Documents', documents_redirect_path %>
-
-
-
+<div id="weather">
+<a href="http://www.accuweather.com/en/us/fort-lauderdale-fl/33301/weather-forecast/328168" class="aw-widget-legal">
+<!--
+By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at http://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at http://www.accuweather.com/en/privacy.
+-->
+</a><div id="awcc1434206798314" class="aw-widget-current"  data-locationkey="328168" data-unit="f" data-language="en-us" data-useip="false" data-uid="awcc1434206798314"></div><script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
+</div>

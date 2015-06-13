@@ -62,14 +62,14 @@ class DocumentsController < ApplicationController
       parameters: {}
     })
 
-    @documents = []
-    @documents << response.data["items"]
+    # @documents = []
+    # @documents << response.data["items"]
 
-    @documents[0].each do |time|
-      puts ""
-      puts time["title"]
-      puts time[""]
-    end
+    # @documents[0].each do |time|
+    #   puts ""
+    #   puts time["title"]
+    #   puts time[""]
+    # end
 
     redirect_to documents_index_path
   end
